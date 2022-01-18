@@ -1,0 +1,410 @@
+Introduction to ISA using SimpleScalar
+
+Lab 1 Part 1 ALPHA-Configuration Benchmark Results
+
+Anagram Benchmark
+
+Anvita@ubuntu:~/Downloads/simplesim-3.0$ ./sim-profile -iclass anagram.alpha
+sim-profile: SimpleScalar/Alpha Tool Set version 3.0 of August, 2003.
+Copyright (c) 1994-2003 by Todd M. Austin, Ph.D. and SimpleScalar, LLC.
+All Rights Reserved. This version of SimpleScalar is licensed for academic
+non-commercial use.  No portion of this work may be used by any commercial
+entity, or for any commercial purpose, without the prior written permission
+of SimpleScalar, LLC (info@simplescalar.com).
+
+warning: section `.comment' ignored...
+sim: command line: ./sim-profile -iclass anagram.alpha 
+
+sim: simulation started @ Tue Nov  9 15:23:18 2021, options follow:
+
+sim-profile: This simulator implements a functional simulator with
+profiling support.  Run with the `-h' flag to see profiling options
+available.
+
+# -config                     # load configuration from a file
+# -dumpconfig                 # dump configuration to a file
+# -h                    false # print help message    
+# -v                    false # verbose operation     
+# -d                    false # enable debug message  
+# -i                    false # start in Dlite debugger
+-seed                       1 # random number generator seed (0 for timer seed)
+# -q                    false # initialize and terminate immediately
+# -chkpt               <null> # restore EIO trace execution from <fname>
+# -redir:sim           <null> # redirect simulator output to file (non-interactive only)
+# -redir:prog          <null> # redirect simulated program output to file
+-nice                       0 # simulator scheduling priority
+-max:inst                   0 # maximum number of inst's to execute
+-all                    false # enable all profile options
+-iclass                  true # enable instruction class profiling
+-iprof                  false # enable instruction profiling
+-brprof                 false # enable branch instruction profiling
+-amprof                 false # enable address mode profiling
+-segprof                false # enable load/store address segment profiling
+-tsymprof               false # enable text symbol profiling
+-taddrprof              false # enable text address profiling
+-dsymprof               false # enable data symbol profiling
+-internal               false # include compiler-internal symbols during symbol profiling
+# -pcstat              <null> # profile stat(s) against text addr's (mult uses ok)
+
+sim: ** starting functional simulation **
+Usage: anagram dictionary [length]
+warning: partially supported sigprocmask() call...
+
+sim: ** simulation statistics **
+sim_num_insn                   4958 # total number of instructions executed
+sim_num_refs                   1843 # total number of loads and stores executed
+sim_elapsed_time                  1 # total simulation time in seconds
+sim_inst_rate             4958.0000 # simulation speed (in insts/sec)
+
+sim_inst_class_prof    # instruction class profile
+sim_inst_class_prof.array_size = 7
+sim_inst_class_prof.bucket_size = 1
+sim_inst_class_prof.count = 7
+sim_inst_class_prof.total = 4957
+sim_inst_class_prof.imin = 0
+sim_inst_class_prof.imax = 7
+sim_inst_class_prof.average = 708.1429
+sim_inst_class_prof.std_dev = 764.0505
+sim_inst_class_prof.overflows = 0
+# pdf == prob dist fn, cdf == cumulative dist fn
+#          index      count    pdf 
+sim_inst_class_prof.start_dist
+load                    884  17.83 
+store                   959  19.35 
+uncond branch           299   6.03 
+cond branch             589  11.88 
+int computation        2208  44.54 
+fp computation            6   0.12 
+trap                     12   0.24 
+sim_inst_class_prof.end_dist
+
+ld_text_base           0x0120000000 # program text (code) segment base
+ld_text_size                 106496 # program text (code) size in bytes
+ld_data_base           0x0140000000 # program initialized data segment base
+ld_data_size                  71264 # program init'ed `.data' and uninit'ed `.bss' size in bytes
+ld_stack_base          0x011ff9b000 # program stack segment base (highest address in stack)
+ld_stack_size                 16384 # program initial stack size
+ld_prog_entry          0x01200059c0 # program entry point (initial PC)
+ld_environ_base        0x011ff97000 # program environment base address address
+ld_target_big_endian              0 # target executable endian-ness, non-zero if big endian
+mem.page_count                   19 # total number of pages allocated
+mem.page_mem                   152k # total size of memory pages allocated
+mem.ptab_misses                  29 # total first level page table misses
+mem.ptab_accesses            239946 # total page table accesses
+mem.ptab_miss_rate           0.0001 # first level page table miss rate
+
+
+
+------------------------------------------------- xxx -------------------------------------------------------------------------------------
+
+Go Benchmark
+
+Anvita@ubuntu:~/Downloads/simplesim-3.0$ ./sim-profile -iclass go.alpha
+sim-profile: SimpleScalar/Alpha Tool Set version 3.0 of August, 2003.
+Copyright (c) 1994-2003 by Todd M. Austin, Ph.D. and SimpleScalar, LLC.
+All Rights Reserved. This version of SimpleScalar is licensed for academic
+non-commercial use.  No portion of this work may be used by any commercial
+entity, or for any commercial purpose, without the prior written permission
+of SimpleScalar, LLC (info@simplescalar.com).
+
+warning: section `.comment' ignored...
+sim: command line: ./sim-profile -iclass go.alpha 
+
+sim: simulation started @ Tue Nov  9 15:34:24 2021, options follow:
+
+sim-profile: This simulator implements a functional simulator with
+profiling support.  Run with the `-h' flag to see profiling options
+available.
+
+# -config                     # load configuration from a file
+# -dumpconfig                 # dump configuration to a file
+# -h                    false # print help message    
+# -v                    false # verbose operation     
+# -d                    false # enable debug message  
+# -i                    false # start in Dlite debugger
+-seed                       1 # random number generator seed (0 for timer seed)
+# -q                    false # initialize and terminate immediately
+# -chkpt               <null> # restore EIO trace execution from <fname>
+# -redir:sim           <null> # redirect simulator output to file (non-interactive only)
+# -redir:prog          <null> # redirect simulated program output to file
+-nice                       0 # simulator scheduling priority
+-max:inst                   0 # maximum number of inst's to execute
+-all                    false # enable all profile options
+-iclass                  true # enable instruction class profiling
+-iprof                  false # enable instruction profiling
+-brprof                 false # enable branch instruction profiling
+-amprof                 false # enable address mode profiling
+-segprof                false # enable load/store address segment profiling
+-tsymprof               false # enable text symbol profiling
+-taddrprof              false # enable text address profiling
+-dsymprof               false # enable data symbol profiling
+-internal               false # include compiler-internal symbols during symbol profiling
+# -pcstat              <null> # profile stat(s) against text addr's (mult uses ok)
+
+sim: ** starting functional simulation **
+  1 B pass
+  2 W pass
+Game over
+warning: partially supported sigprocmask() call...
+
+sim: ** simulation statistics **
+sim_num_insn                 709706 # total number of instructions executed
+sim_num_refs                 196722 # total number of loads and stores executed
+sim_elapsed_time                  1 # total simulation time in seconds
+sim_inst_rate           709706.0000 # simulation speed (in insts/sec)
+
+sim_inst_class_prof    # instruction class profile
+sim_inst_class_prof.array_size = 7
+sim_inst_class_prof.bucket_size = 1
+sim_inst_class_prof.count = 7
+sim_inst_class_prof.total = 709705
+sim_inst_class_prof.imin = 0
+sim_inst_class_prof.imax = 7
+sim_inst_class_prof.average = 101386.4286
+sim_inst_class_prof.std_dev = 134231.3975
+sim_inst_class_prof.overflows = 0
+# pdf == prob dist fn, cdf == cumulative dist fn
+#          index      count    pdf 
+sim_inst_class_prof.start_dist
+load                 104982  14.79 
+store                 91740  12.93 
+uncond branch         18913   2.66 
+cond branch          105548  14.87 
+int computation      386163  54.41 
+fp computation         2339   0.33 
+trap                     20   0.00 
+sim_inst_class_prof.end_dist
+
+ld_text_base           0x0120000000 # program text (code) segment base
+ld_text_size                 376832 # program text (code) size in bytes
+ld_data_base           0x0140000000 # program initialized data segment base
+ld_data_size                 612032 # program init'ed `.data' and uninit'ed `.bss' size in bytes
+ld_stack_base          0x011ff9b000 # program stack segment base (highest address in stack)
+ld_stack_size                 16384 # program initial stack size
+ld_prog_entry          0x0120007bb0 # program entry point (initial PC)
+ld_environ_base        0x011ff97000 # program environment base address address
+ld_target_big_endian              0 # target executable endian-ness, non-zero if big endian
+mem.page_count                  111 # total number of pages allocated
+mem.page_mem                   888k # total size of memory pages allocated
+mem.ptab_misses                1873 # total first level page table misses
+mem.ptab_accesses           2782300 # total page table accesses
+mem.ptab_miss_rate           0.0007 # first level page table miss rate
+
+--------------------------------------------------- xxx ---------------------------------------------------------------------
+
+
+Compress95 Benchmark
+
+Anvita@ubuntu:~/Downloads/simplesim-3.0$ ./sim-profile -iclass compress95.alpha -O
+sim-profile: SimpleScalar/Alpha Tool Set version 3.0 of August, 2003.
+Copyright (c) 1994-2003 by Todd M. Austin, Ph.D. and SimpleScalar, LLC.
+All Rights Reserved. This version of SimpleScalar is licensed for academic
+non-commercial use.  No portion of this work may be used by any commercial
+entity, or for any commercial purpose, without the prior written permission
+of SimpleScalar, LLC (info@simplescalar.com).
+
+warning: section `.comment' ignored...
+sim: command line: ./sim-profile -iclass compress95.alpha -O  
+
+sim: simulation started @ Mon Nov 15 19:04:10 2021, options follow:
+
+sim-profile: This simulator implements a functional simulator with
+profiling support.  Run with the `-h' flag to see profiling options
+available.
+
+# -config                     # load configuration from a file
+# -dumpconfig                 # dump configuration to a file
+# -h                    false # print help message    
+# -v                    false # verbose operation     
+# -d                    false # enable debug message  
+# -i                    false # start in Dlite debugger
+-seed                       1 # random number generator seed (0 for timer seed)
+# -q                    false # initialize and terminate immediately
+# -chkpt               <null> # restore EIO trace execution from <fname>
+# -redir:sim           <null> # redirect simulator output to file (non-interactive only)
+# -redir:prog          <null> # redirect simulated program output to file
+-nice                       0 # simulator scheduling priority
+-max:inst                   0 # maximum number of inst's to execute
+-all                    false # enable all profile options
+-iclass                  true # enable instruction class profiling
+-iprof                  false # enable instruction profiling
+-brprof                 false # enable branch instruction profiling
+-amprof                 false # enable address mode profiling
+-segprof                false # enable load/store address segment profiling
+-tsymprof               false # enable text symbol profiling
+-taddrprof              false # enable text address profiling
+-dsymprof               false # enable data symbol profiling
+-internal               false # include compiler-internal symbols during symbol profiling
+# -pcstat              <null> # profile stat(s) against text addr's (mult uses ok)
+
+sim: ** starting functional simulation **
+warning: partially supported sigaction() call...
+Unknown flag: 'O'; Usage: compress [-dfvcV] [-b maxbits] [file ...]
+
+sim: ** simulation statistics **
+sim_num_insn                   4908 # total number of instructions executed
+sim_num_refs                   1474 # total number of loads and stores executed
+sim_elapsed_time                  1 # total simulation time in seconds
+sim_inst_rate             4908.0000 # simulation speed (in insts/sec)
+
+sim_inst_class_prof    # instruction class profile
+sim_inst_class_prof.array_size = 7
+sim_inst_class_prof.bucket_size = 1
+sim_inst_class_prof.count = 7
+sim_inst_class_prof.total = 4907
+sim_inst_class_prof.imin = 0
+sim_inst_class_prof.imax = 7
+sim_inst_class_prof.average = 701.0000
+sim_inst_class_prof.std_dev = 852.1966
+sim_inst_class_prof.overflows = 0
+# pdf == prob dist fn, cdf == cumulative dist fn
+#          index      count    pdf 
+sim_inst_class_prof.start_dist
+load                    841  17.14 
+store                   633  12.90 
+uncond branch           254   5.18 
+cond branch             685  13.96 
+int computation        2481  50.56 
+fp computation            0   0.00 
+trap                     13   0.26 
+sim_inst_class_prof.end_dist
+
+ld_text_base           0x0120000000 # program text (code) segment base
+ld_text_size                  65536 # program text (code) size in bytes
+ld_data_base           0x0140000000 # program initialized data segment base
+ld_data_size                 743728 # program init'ed `.data' and uninit'ed `.bss' size in bytes
+ld_stack_base          0x011ff9b000 # program stack segment base (highest address in stack)
+ld_stack_size                 16384 # program initial stack size
+ld_prog_entry          0x0120002050 # program entry point (initial PC)
+ld_environ_base        0x011ff97000 # program environment base address address
+ld_target_big_endian              0 # target executable endian-ness, non-zero if big endian
+mem.page_count                   15 # total number of pages allocated
+mem.page_mem                   120k # total size of memory pages allocated
+mem.ptab_misses                 212 # total first level page table misses
+mem.ptab_accesses            180565 # total page table accesses
+mem.ptab_miss_rate           0.0012 # first level page table miss rate
+
+---------------------------------------------------- xxx -----------------------------------------------------------------
+
+
+GCC Benchmark
+
+Anvita@ubuntu:~/Downloads/simplesim-3.0$ ./sim-profile -iclass cc1.alpha -O 1stmt.i
+sim-profile: SimpleScalar/Alpha Tool Set version 3.0 of August, 2003.
+Copyright (c) 1994-2003 by Todd M. Austin, Ph.D. and SimpleScalar, LLC.
+All Rights Reserved. This version of SimpleScalar is licensed for academic
+non-commercial use.  No portion of this work may be used by any commercial
+entity, or for any commercial purpose, without the prior written permission
+of SimpleScalar, LLC (info@simplescalar.com).
+
+warning: section `.comment' ignored...
+sim: command line: ./sim-profile -iclass cc1.alpha -O 1stmt.i 
+
+sim: simulation started @ Mon Nov 15 19:13:23 2021, options follow:
+
+sim-profile: This simulator implements a functional simulator with
+profiling support.  Run with the `-h' flag to see profiling options
+available.
+
+# -config                     # load configuration from a file
+# -dumpconfig                 # dump configuration to a file
+# -h                    false # print help message    
+# -v                    false # verbose operation     
+# -d                    false # enable debug message  
+# -i                    false # start in Dlite debugger
+-seed                       1 # random number generator seed (0 for timer seed)
+# -q                    false # initialize and terminate immediately
+# -chkpt               <null> # restore EIO trace execution from <fname>
+# -redir:sim           <null> # redirect simulator output to file (non-interactive only)
+# -redir:prog          <null> # redirect simulated program output to file
+-nice                       0 # simulator scheduling priority
+-max:inst                   0 # maximum number of inst's to execute
+-all                    false # enable all profile options
+-iclass                  true # enable instruction class profiling
+-iprof                  false # enable instruction profiling
+-brprof                 false # enable branch instruction profiling
+-amprof                 false # enable address mode profiling
+-segprof                false # enable load/store address segment profiling
+-tsymprof               false # enable text symbol profiling
+-taddrprof              false # enable text address profiling
+-dsymprof               false # enable data symbol profiling
+-internal               false # include compiler-internal symbols during symbol profiling
+# -pcstat              <null> # profile stat(s) against text addr's (mult uses ok)
+
+sim: ** starting functional simulation **
+warning: partially supported sigaction() call...
+ label_rtx emit_jump expand_label expand_goto expand_goto_internal expand_fixup fixup_gotos expand_asm expand_asm_operands expand_expr_stmt 
+ clear_last_expr expand_start_stmt_expr expand_end_stmt_expr expand_start_cond expand_end_cond expand_start_else expand_end_else expand_start_loop 
+ expand_start_loop_continue_elsewhere expand_loop_continue_here expand_end_loop expand_continue_loop expand_exit_loop expand_exit_loop_if_false
+ expand_exit_something expand_null_return expand_null_return_1 expand_return drop_through_at_end_p tail_recursion_args expand_start_bindings
+ use_variable use_variable_after expand_end_bindings expand_decl expand_decl_init expand_anon_union_decl expand_cleanups fixup_cleanups
+ move_cleanups_up expand_start_case expand_start_case_dummy expand_end_case_dummy pushcase pushcase_range check_for_full_enumeration_handling
+ expand_end_case do_jump_if_equal group_case_nodes balance_case_nodes node_has_low_bound node_has_high_bound node_is_bounded emit_jump_if_reachable
+ emit_case_nodes get_frame_size assign_stack_local put_var_into_stack fixup_var_refs fixup_var_refs_insns fixup_var_refs_1 fixup_memory_subreg
+ walk_fixup_memory_subreg fixup_stack_1 optimize_bit_field max_parm_reg_num get_first_nonparm_insn parm_stack_loc assign_parms get_structure_value_addr
+ uninitialized_vars_warning setjmp_protect expand_function_start expand_function_end
+time in parse: 0.000000
+time in integration: 0.000000
+time in jump: 0.000000
+time in cse: 0.000000
+time in loop: 0.000000
+time in cse2: 0.000000
+time in flow: 0.000000
+time in combine: 0.000000
+time in sched: 0.000000
+time in local-alloc: 0.000000
+time in global-alloc: 0.000000
+time in sched2: 0.000000
+time in dbranch: 0.000000
+time in shorten-branch: 0.000000
+time in stack-reg: 0.000000
+time in final: 0.000000
+time in varconst: 0.000000
+time in symout: 0.000000
+time in dump: 0.000000
+warning: partially supported sigprocmask() call...
+
+sim: ** simulation statistics **
+sim_num_insn              337341118 # total number of instructions executed
+sim_num_refs              121898442 # total number of loads and stores executed
+sim_elapsed_time                 43 # total simulation time in seconds
+sim_inst_rate          7845142.2791 # simulation speed (in insts/sec)
+
+sim_inst_class_prof    # instruction class profile
+sim_inst_class_prof.array_size = 7
+sim_inst_class_prof.bucket_size = 1
+sim_inst_class_prof.count = 7
+sim_inst_class_prof.total = 337341117
+sim_inst_class_prof.imin = 0
+sim_inst_class_prof.imax = 7
+sim_inst_class_prof.average = 48191588.1429
+sim_inst_class_prof.std_dev = 55935320.4933
+sim_inst_class_prof.overflows = 0
+# pdf == prob dist fn, cdf == cumulative dist fn
+#          index      count    pdf 
+sim_inst_class_prof.start_dist
+load               83205328  24.67 
+store              38693114  11.47 
+uncond branch      13903378   4.12 
+cond branch        44969511  13.33 
+int computation   156184441  46.30 
+fp computation       374706   0.11 
+trap                  10639   0.00 
+sim_inst_class_prof.end_dist
+
+ld_text_base           0x0120000000 # program text (code) segment base
+ld_text_size                1564672 # program text (code) size in bytes
+ld_data_base           0x0140000000 # program initialized data segment base
+ld_data_size                 277104 # program init'ed `.data' and uninit'ed `.bss' size in bytes
+ld_stack_base          0x011ff9b000 # program stack segment base (highest address in stack)
+ld_stack_size                 16384 # program initial stack size
+ld_prog_entry          0x0120025f70 # program entry point (initial PC)
+ld_environ_base        0x011ff97000 # program environment base address address
+ld_target_big_endian              0 # target executable endian-ness, non-zero if big endian
+mem.page_count                  655 # total number of pages allocated
+mem.page_mem                  5240k # total size of memory pages allocated
+mem.ptab_misses              869236 # total first level page table misses
+mem.ptab_accesses         922383888 # total page table accesses
+mem.ptab_miss_rate           0.0009 # first level page table miss rate
+
+------------------------------------------------------- xxx -----------------------------------------------------------------------------------
